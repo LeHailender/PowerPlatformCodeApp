@@ -70,67 +70,41 @@ function App() {
   return (
     <>
       <div>
-        <h1>Power Platform Accounts</h1>
+        <h1>Space Accounts</h1>
         
-        {error && <div style={{ color: 'red', padding: '10px', background: '#ffe6e6', borderRadius: '5px' }}>{error}</div>}
+        {error && <div className="error-message">{error}</div>}
         
         {loading ? (
           <p>Loading accounts...</p>
         ) : (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+            <div className="header-actions">
               <h2>Total Accounts: {accounts.length}</h2>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <button 
-                  onClick={() => handleOpenDialog()}
-                  style={{ 
-                    padding: '8px 16px',
-                    backgroundColor: '#107c10',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontWeight: '500'
-                  }}
-                >
-                  + New Account
-                </button>
-                <button 
-                  onClick={fetchAccounts}
-                  style={{ 
-                    padding: '8px 16px',
-                    backgroundColor: '#0078d4',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontWeight: '500'
-                  }}
-                >
-                  Refresh
-                </button>
-              </div>
             </div>
-            <div style={{ maxHeight: '500px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px' }}>
+            <div className="button-group">
+              <button 
+                onClick={() => handleOpenDialog()}
+                className="btn btn-success"
+              >
+                + New Account
+              </button>
+              <button 
+                onClick={fetchAccounts}
+                className="btn btn-primary"
+              >
+                Refresh
+              </button>
+            </div>
+            <div className="accounts-container">
               {accounts.length === 0 ? (
                 <p>No accounts found.</p>
               ) : (
-                <ul style={{ listStyle: 'none', padding: 0 }}>
+                <ul className="accounts-list">
                   {accounts.map((account, index) => (
                     <li 
                       key={account.accountid || index} 
                       onClick={() => handleOpenDialog(account)}
-                      style={{ 
-                        padding: '10px', 
-                        margin: '5px 0', 
-                        background: '#f5f5f5', 
-                        borderRadius: '5px',
-                        borderLeft: '4px solid #0078d4',
-                        cursor: 'pointer',
-                        transition: 'background 0.2s'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = '#e8e8e8'}
-                      onMouseLeave={(e) => e.currentTarget.style.background = '#f5f5f5'}
+                      className="account-item"
                     >
                       <strong>{account.name || 'Unnamed Account'}</strong>
                       {account.accountnumber && <div>Account Number: {account.accountnumber}</div>}
