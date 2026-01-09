@@ -248,6 +248,33 @@ body {
   text-shadow: 0 0 3px rgba(0, 168, 255, 0.3);
 }
 
+.account-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-delete {
+  background-color: #ff3366;
+  border-color: #ff5588;
+  min-width: 40px;
+  height: 40px;
+  padding: 8px;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 
+    0 0 10px rgba(255, 51, 102, 0.5),
+    inset 0 0 10px rgba(255, 51, 102, 0.2);
+}
+
+.btn-delete:hover:not(:disabled) {
+  background-color: #ff1144;
+  box-shadow: 
+    0 0 20px rgba(255, 51, 102, 0.8),
+    inset 0 0 15px rgba(255, 51, 102, 0.3);
+}
+
 /* Dialog */
 .dialog-overlay {
   position: fixed;

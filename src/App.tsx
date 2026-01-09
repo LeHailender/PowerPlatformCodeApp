@@ -66,6 +66,22 @@ function App() {
     setIsDialogOpen(false);
   };
 
+  const handleDeleteAccount = async (accountId: string, event: React.MouseEvent) => {
+    event.stopPropagation();
+    
+    if (!confirm('Are you sure you want to delete this account?')) {
+      return;
+    }
+
+    try {
+      await AccountsService.delete(accountId);
+      await fetchAccounts();
+      setError(null);
+    } catch (err) {
+      setError('Failed to delete account: ' + (err instanceof Error ? err.message : String(err)));
+    }
+  };
+
   // Render the app UI  
   return (
     <>
@@ -106,10 +122,21 @@ function App() {
                       onClick={() => handleOpenDialog(account)}
                       className="account-item"
                     >
-                      <strong>{account.name || 'Unnamed Account'}</strong>
-                      {account.accountnumber && <div>Account Number: {account.accountnumber}</div>}
-                      {account.emailaddress1 && <div>Email: {account.emailaddress1}</div>}
-                      {account.telephone1 && <div>Phone: {account.telephone1}</div>}
+                      <div className="account-content">
+                        <div>
+                          <h3>{account.name || 'Unnamed Account'}</h3>
+                          {account.accountnumber && <p>Account Number: {account.accountnumber}</p>}
+                          {account.emailaddress1 && <p>Email: {account.emailaddress1}</p>}
+                          {account.telephone1 && <p>Phone: {account.telephone1}</p>}
+                        </div>
+                        <button
+                          onClick={(e) => handleDeleteAccount(account.accountid!, e)}
+                          className="btn btn-delete"
+                          title="Delete Account"
+                        >
+                          ✕
+                        </button>
+                      </div>
                     </li>
                   ))}
                 </ul>
