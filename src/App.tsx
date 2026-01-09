@@ -3,12 +3,15 @@ import './App.css'
 import { AccountsService } from './generated/services/AccountsService';
 import type { Accounts } from './generated/models/AccountsModel';
 import { initialize } from '@microsoft/power-apps/app';
+import { AccountFormDialog } from './components/AccountFormDialog';
 
 function App() {
   const [isPowerPlatformSDKInitialized, setIsPowerPlatformSDKInitialized] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [accounts, setAccounts] = useState<Accounts[]>([]);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedAccount, setSelectedAccount] = useState<Accounts | null>(null);
 
   // Initialize Power Apps SDK on component mount
   // Will called only once when the component is mounted (rendered for the first time)
@@ -53,6 +56,16 @@ function App() {
       }
     };
 
+  const handleOpenDialog = (account?: Accounts) => {
+    setSelectedAccount(account || null);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedAccount(null);
+    setIsDialogOpen(false);
+  };
+
   // Render the app UI  
   return (
     <>
@@ -67,20 +80,36 @@ function App() {
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
               <h2>Total Accounts: {accounts.length}</h2>
-              <button 
-                onClick={fetchAccounts}
-                style={{ 
-                  padding: '8px 16px',
-                  backgroundColor: '#0078d4',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontWeight: '500'
-                }}
-              >
-                Refresh
-              </button>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button 
+                  onClick={() => handleOpenDialog()}
+                  style={{ 
+                    padding: '8px 16px',
+                    backgroundColor: '#107c10',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                >
+                  + New Account
+                </button>
+                <button 
+                  onClick={fetchAccounts}
+                  style={{ 
+                    padding: '8px 16px',
+                    backgroundColor: '#0078d4',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                >
+                  Refresh
+                </button>
+              </div>
             </div>
             <div style={{ maxHeight: '500px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px' }}>
               {accounts.length === 0 ? (
@@ -88,13 +117,21 @@ function App() {
               ) : (
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                   {accounts.map((account, index) => (
-                    <li key={account.accountid || index} style={{ 
-                      padding: '10px', 
-                      margin: '5px 0', 
-                      background: '#f5f5f5', 
-                      borderRadius: '5px',
-                      borderLeft: '4px solid #0078d4'
-                    }}>
+                    <li 
+                      key={account.accountid || index} 
+                      onClick={() => handleOpenDialog(account)}
+                      style={{ 
+                        padding: '10px', 
+                        margin: '5px 0', 
+                        background: '#f5f5f5', 
+                        borderRadius: '5px',
+                        borderLeft: '4px solid #0078d4',
+                        cursor: 'pointer',
+                        transition: 'background 0.2s'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = '#e8e8e8'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = '#f5f5f5'}
+                    >
                       <strong>{account.name || 'Unnamed Account'}</strong>
                       {account.accountnumber && <div>Account Number: {account.accountnumber}</div>}
                       {account.emailaddress1 && <div>Email: {account.emailaddress1}</div>}
@@ -107,6 +144,13 @@ function App() {
           </div>
         )}
         
+        <AccountFormDialog
+          isOpen={isDialogOpen}
+          account={selectedAccount}
+          onClose={handleCloseDialog}
+          onSuccess={fetchAccounts}
+          onError={setError}
+        />
       </div>
     </>
   )
