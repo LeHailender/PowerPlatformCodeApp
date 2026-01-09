@@ -198,7 +198,6 @@ body {
   background: linear-gradient(135deg, rgba(0, 168, 255, 0.1), rgba(0, 255, 136, 0.05));
   border: 1px solid #00a8ff;
   border-left: 4px solid #00ffcc;
-  cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
@@ -226,12 +225,11 @@ body {
 }
 
 .account-item:hover {
-  background: linear-gradient(135deg, rgba(0, 168, 255, 0.2), rgba(0, 255, 136, 0.1));
+  background: linear-gradient(135deg, rgba(0, 168, 255, 0.15), rgba(0, 255, 136, 0.08));
   border-color: #00ffcc;
   box-shadow: 
-    0 0 20px rgba(0, 255, 204, 0.4),
-    inset 0 0 20px rgba(0, 255, 204, 0.1);
-  transform: translateX(5px);
+    0 0 15px rgba(0, 255, 204, 0.3),
+    inset 0 0 15px rgba(0, 255, 204, 0.08);
 }
 
 .account-item h3 {
@@ -253,6 +251,32 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
+}
+
+.account-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-edit {
+  background-color: #00a8ff;
+  border-color: #00d4ff;
+  min-width: 40px;
+  height: 40px;
+  padding: 8px;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 
+    0 0 10px rgba(0, 168, 255, 0.5),
+    inset 0 0 10px rgba(0, 168, 255, 0.2);
+}
+
+.btn-edit:hover:not(:disabled) {
+  background-color: #0088dd;
+  box-shadow: 
+    0 0 20px rgba(0, 168, 255, 0.8),
+    inset 0 0 15px rgba(0, 168, 255, 0.3);
 }
 
 .btn-delete {

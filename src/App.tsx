@@ -119,7 +119,6 @@ function App() {
                   {accounts.map((account, index) => (
                     <li 
                       key={account.accountid || index} 
-                      onClick={() => handleOpenDialog(account)}
                       className="account-item"
                     >
                       <div className="account-content">
@@ -129,13 +128,22 @@ function App() {
                           {account.emailaddress1 && <p>Email: {account.emailaddress1}</p>}
                           {account.telephone1 && <p>Phone: {account.telephone1}</p>}
                         </div>
-                        <button
-                          onClick={(e) => handleDeleteAccount(account.accountid!, e)}
-                          className="btn btn-delete"
-                          title="Delete Account"
-                        >
-                          ✕
-                        </button>
+                        <div className="account-actions">
+                          <button
+                            onClick={() => handleOpenDialog(account)}
+                            className="btn btn-edit"
+                            title="Edit Account"
+                          >
+                            ✎
+                          </button>
+                          <button
+                            onClick={(e) => handleDeleteAccount(account.accountid!, e)}
+                            className="btn btn-delete"
+                            title="Delete Account"
+                          >
+                            ✕
+                          </button>
+                        </div>
                       </div>
                     </li>
                   ))}
