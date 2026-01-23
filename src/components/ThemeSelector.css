@@ -1,0 +1,149 @@
+.theme-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid currentColor;
+}
+
+.theme-selector-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+.theme-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 2px solid currentColor;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-weight: 600;
+  color: inherit;
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.theme-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px currentColor;
+  transform: scale(1.05);
+}
+
+.theme-icon {
+  font-size: 1.2em;
+}
+
+.theme-name {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Space theme specific styles */
+body.theme-space .theme-selector {
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+}
+
+body.theme-space .theme-btn {
+  border-color: #00a8ff;
+}
+
+body.theme-space .theme-btn.active {
+  border-color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+/* Comic theme specific styles */
+body.theme-comic .theme-selector {
+  border-color: #000;
+  border-width: 3px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+body.theme-comic .theme-btn {
+  border-color: #000;
+  border-width: 3px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+body.theme-comic .theme-btn:hover {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.theme-comic .theme-btn.active {
+  box-shadow: 4px 4px 0 #FFD700;
+  border-color: #000;
+}
+
+/* Cyberpunk theme specific styles */
+body.theme-cyberpunk .theme-selector {
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+body.theme-cyberpunk .theme-btn {
+  border-color: #ff00ff;
+}
+
+body.theme-cyberpunk .theme-btn.active {
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+/* SAP theme specific styles */
+body.theme-sap .theme-selector {
+  border-color: #d9d9d9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-sap .theme-btn {
+  border-color: #0a6ed1;
+}
+
+body.theme-sap .theme-btn.active {
+  border-color: #0a6ed1;
+  background: rgba(10, 110, 209, 0.1);
+  box-shadow: 0 2px 8px rgba(10, 110, 209, 0.3);
+}
+
+/* Modern theme specific styles */
+body.theme-modern .theme-selector {
+  border-color: rgba(229, 231, 235, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-modern .theme-btn {
+  border-color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+body.theme-modern .theme-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body.theme-modern .theme-btn.active {
+  border-color: #6366f1;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}

@@ -1,0 +1,272 @@
+/* SAP Fiori Design Theme */
+@import url('https://fonts.googleapis.com/css2?family=72&family=Open+Sans:wght@400;600;700&display=swap');
+
+body.theme-sap {
+  font-family: '72', 'Open Sans', Arial, sans-serif;
+  background: linear-gradient(135deg, #f7f7f7 0%, #e5e5e5 100%);
+  color: #32363a;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle grid pattern */
+body.theme-sap::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    linear-gradient(rgba(10, 110, 209, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 110, 209, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.theme-sap #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 0 1px rgba(10, 110, 209, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+body.theme-sap h1 {
+  color: #0a6ed1;
+  text-shadow: none;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+body.theme-sap .error-message {
+  color: #bb0000;
+  background: #fee;
+  border: 1px solid #bb0000;
+  border-radius: 4px;
+  border-left: 4px solid #bb0000;
+  box-shadow: none;
+  text-shadow: none;
+  font-weight: 600;
+}
+
+body.theme-sap .header-actions {
+  background: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+body.theme-sap .header-actions h2 {
+  color: #32363a;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+body.theme-sap .btn {
+  border-radius: 4px;
+  border-width: 1px;
+  font-family: '72', 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.15s ease;
+}
+
+body.theme-sap .btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.theme-sap .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.theme-sap .btn-primary {
+  background-color: #0a6ed1;
+  border-color: #0a6ed1;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(10, 110, 209, 0.3);
+}
+
+body.theme-sap .btn-primary:hover:not(:disabled) {
+  background-color: #0854a0;
+  border-color: #0854a0;
+  box-shadow: 0 4px 8px rgba(10, 110, 209, 0.4);
+}
+
+body.theme-sap .btn-success {
+  background-color: #107e3e;
+  border-color: #107e3e;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(16, 126, 62, 0.3);
+}
+
+body.theme-sap .btn-success:hover:not(:disabled) {
+  background-color: #0d6733;
+  border-color: #0d6733;
+  box-shadow: 0 4px 8px rgba(16, 126, 62, 0.4);
+}
+
+body.theme-sap .accounts-container {
+  border: 1px solid #d9d9d9;
+  background: #fafafa;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+body.theme-sap .accounts-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.theme-sap .accounts-container::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+body.theme-sap .accounts-container::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 4px;
+}
+
+body.theme-sap .accounts-container::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+body.theme-sap .account-item {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-left: 4px solid #0a6ed1;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  clip-path: none;
+}
+
+body.theme-sap .account-item::before,
+body.theme-sap .account-item::after {
+  content: none;
+}
+
+body.theme-sap .account-item:hover {
+  background: #fafafa;
+  border-color: #0a6ed1;
+  box-shadow: 0 2px 8px rgba(10, 110, 209, 0.15);
+  transform: translateY(-1px);
+}
+
+body.theme-sap .account-item h3 {
+  color: #0a6ed1;
+  text-shadow: none;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+body.theme-sap .account-item p {
+  color: #6a6d70;
+  text-shadow: none;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+body.theme-sap .dialog-overlay {
+  background-color: rgba(50, 54, 58, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+body.theme-sap .dialog-content {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 0 1px rgba(10, 110, 209, 0.1),
+    0 16px 48px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  clip-path: none;
+}
+
+body.theme-sap .dialog-content::before {
+  content: '';
+  display: none;
+}
+
+body.theme-sap .dialog-content h2 {
+  color: #0a6ed1;
+  text-shadow: none;
+  border-bottom: 2px solid #0a6ed1;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-transform: none;
+}
+
+body.theme-sap .form-label {
+  color: #32363a;
+  text-shadow: none;
+  font-weight: 600;
+  text-transform: none;
+  font-size: 0.9em;
+}
+
+body.theme-sap .form-input {
+  background: #ffffff;
+  border: 1px solid #89919a;
+  color: #32363a;
+  font-family: '72', 'Open Sans', Arial, sans-serif;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+}
+
+body.theme-sap .form-input:focus {
+  border-color: #0a6ed1;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.05),
+    0 0 0 2px rgba(10, 110, 209, 0.2);
+  background: #ffffff;
+  outline: none;
+}
+
+body.theme-sap .form-input::placeholder {
+  color: #89919a;
+}
+
+body.theme-sap .btn-delete {
+  background-color: #bb0000;
+  border-color: #bb0000;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(187, 0, 0, 0.3);
+}
+
+body.theme-sap .btn-delete:hover:not(:disabled) {
+  background-color: #a20000;
+  border-color: #a20000;
+  box-shadow: 0 4px 8px rgba(187, 0, 0, 0.4);
+}
+
+body.theme-sap .btn-edit {
+  background-color: #0a6ed1;
+  border-color: #0a6ed1;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(10, 110, 209, 0.3);
+}
+
+body.theme-sap .btn-edit:hover:not(:disabled) {
+  background-color: #0854a0;
+  border-color: #0854a0;
+  box-shadow: 0 4px 8px rgba(10, 110, 209, 0.4);
+}
+
+body.theme-sap .form-actions {
+  border-top: 1px solid #e5e5e5;
+}

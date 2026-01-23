@@ -1,376 +1,58 @@
-/* Spaceship Control Panel Theme */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+/* Base Styles - Shared across all themes */
+/* Theme-specific styles are loaded dynamically */
 
-* {
-  font-family: 'Orbitron', monospace;
-}
-
-body {
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
-  color: #00ff88;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Space Background Elements - Enhanced Glowing Star Field */
-body::before {
-  content: '';
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image: 
-    /* Large bright glowing stars */
-    radial-gradient(circle 4px at 20% 30%, white, rgba(255,255,255,0.6) 40%, transparent 70%),
-    radial-gradient(circle 4px at 60% 70%, white, rgba(255,255,255,0.6) 40%, transparent 70%),
-    radial-gradient(circle 3px at 90% 60%, #ffffaa, rgba(255,255,170,0.5) 40%, transparent 70%),
-    radial-gradient(circle 4px at 15% 15%, white, rgba(255,255,255,0.6) 40%, transparent 70%),
-    radial-gradient(circle 3px at 85% 85%, #aaffff, rgba(170,255,255,0.5) 40%, transparent 70%),
-    radial-gradient(circle 3px at 42% 18%, #ffaaff, rgba(255,170,255,0.5) 40%, transparent 70%),
-    radial-gradient(circle 4px at 72% 92%, white, rgba(255,255,255,0.6) 40%, transparent 70%),
-    radial-gradient(circle 3px at 28% 65%, #aaffaa, rgba(170,255,170,0.5) 40%, transparent 70%),
-    /* Medium stars */
-    radial-gradient(circle 2.5px at 50% 50%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2.5px at 80% 10%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2.5px at 33% 80%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2.5px at 65% 40%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2px at 40% 60%, #ffffcc, rgba(255,255,204,0.4) 50%, transparent),
-    radial-gradient(circle 2px at 10% 70%, #ccffff, rgba(204,255,255,0.4) 50%, transparent),
-    radial-gradient(circle 2.5px at 88% 32%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2px at 28% 48%, #ffccff, rgba(255,204,255,0.4) 50%, transparent),
-    radial-gradient(circle 2.5px at 52% 88%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2.5px at 12% 42%, white, rgba(255,255,255,0.5) 50%, transparent),
-    radial-gradient(circle 2px at 75% 55%, #ccffcc, rgba(204,255,204,0.4) 50%, transparent),
-    radial-gradient(circle 2.5px at 95% 25%, white, rgba(255,255,255,0.5) 50%, transparent),
-    /* Small stars - more visible */
-    radial-gradient(circle 1.5px at 15% 90%, white, transparent),
-    radial-gradient(circle 1.5px at 70% 25%, white, transparent),
-    radial-gradient(circle 1.5px at 45% 35%, white, transparent),
-    radial-gradient(circle 1.5px at 25% 55%, white, transparent),
-    radial-gradient(circle 1.5px at 55% 75%, white, transparent),
-    radial-gradient(circle 1.5px at 5% 5%, white, transparent),
-    radial-gradient(circle 1.5px at 35% 95%, white, transparent),
-    radial-gradient(circle 1.5px at 75% 15%, white, transparent),
-    radial-gradient(circle 1.5px at 62% 52%, white, transparent),
-    radial-gradient(circle 1.5px at 18% 68%, white, transparent),
-    radial-gradient(circle 1.5px at 92% 78%, white, transparent),
-    radial-gradient(circle 1.5px at 48% 8%, white, transparent),
-    radial-gradient(circle 1.5px at 82% 58%, white, transparent),
-    radial-gradient(circle 1.5px at 38% 28%, white, transparent),
-    radial-gradient(circle 1.5px at 8% 48%, white, transparent),
-    radial-gradient(circle 1.5px at 68% 88%, white, transparent),
-    radial-gradient(circle 1.5px at 98% 38%, white, transparent),
-    radial-gradient(circle 1.5px at 32% 8%, white, transparent),
-    radial-gradient(circle 1.5px at 58% 98%, white, transparent),
-    radial-gradient(circle 1.5px at 88% 18%, white, transparent);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Planet 1 - Blue Gas Giant */
-body::after {
-  content: '';
-  position: fixed;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #4a90e2, #2e5c8a 50%, #1a3a5c);
-  box-shadow: 
-    inset -20px -20px 40px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(74, 144, 226, 0.3);
-  top: 10%;
-  right: -50px;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Planet 2 - Red Mars-like */
-#root::after {
-  content: '';
-  position: fixed;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, #ff6b4a, #cc3d1f 50%, #8a1f0f);
-  box-shadow: 
-    inset -15px -15px 30px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(255, 107, 74, 0.2);
-  bottom: 15%;
-  left: -40px;
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Static Star Field Layer - Non-animated stars */
-#root::before {
-  content: '';
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image: 
-    /* Bright static stars */
-    radial-gradient(2px 2px at 8% 12%, white, rgba(255,255,255,0.3) 50%, transparent),
-    radial-gradient(2px 2px at 22% 38%, white, rgba(255,255,255,0.3) 50%, transparent),
-    radial-gradient(2px 2px at 47% 63%, white, rgba(255,255,255,0.3) 50%, transparent),
-    radial-gradient(2px 2px at 68% 28%, white, rgba(255,255,255,0.3) 50%, transparent),
-    radial-gradient(2px 2px at 83% 77%, white, rgba(255,255,255,0.3) 50%, transparent),
-    radial-gradient(1.5px 1.5px at 14% 58%, #ffffcc, rgba(255,255,204,0.4) 40%, transparent),
-    radial-gradient(1.5px 1.5px at 36% 84%, #ccffff, rgba(204,255,255,0.4) 40%, transparent),
-    radial-gradient(1.5px 1.5px at 58% 14%, #ffccff, rgba(255,204,255,0.4) 40%, transparent),
-    radial-gradient(1.5px 1.5px at 74% 44%, #ccffcc, rgba(204,255,204,0.4) 40%, transparent),
-    radial-gradient(1.5px 1.5px at 91% 91%, white, rgba(255,255,255,0.3) 50%, transparent),
-    /* Medium static stars */
-    radial-gradient(1.5px 1.5px at 3% 23%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 17% 72%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 31% 47%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 43% 8%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 56% 93%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 64% 56%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 77% 18%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 86% 64%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 93% 37%, white, rgba(255,255,255,0.3) 60%, transparent),
-    radial-gradient(1.5px 1.5px at 27% 27%, white, rgba(255,255,255,0.3) 60%, transparent),
-    /* Small static stars - dense field */
-    radial-gradient(1px 1px at 6% 6%, white, transparent),
-    radial-gradient(1px 1px at 11% 41%, white, transparent),
-    radial-gradient(1px 1px at 19% 67%, white, transparent),
-    radial-gradient(1px 1px at 24% 89%, white, transparent),
-    radial-gradient(1px 1px at 32% 19%, white, transparent),
-    radial-gradient(1px 1px at 39% 52%, white, transparent),
-    radial-gradient(1px 1px at 44% 76%, white, transparent),
-    radial-gradient(1px 1px at 51% 34%, white, transparent),
-    radial-gradient(1px 1px at 59% 11%, white, transparent),
-    radial-gradient(1px 1px at 66% 69%, white, transparent),
-    radial-gradient(1px 1px at 71% 87%, white, transparent),
-    radial-gradient(1px 1px at 79% 23%, white, transparent),
-    radial-gradient(1px 1px at 84% 49%, white, transparent),
-    radial-gradient(1px 1px at 88% 73%, white, transparent),
-    radial-gradient(1px 1px at 94% 16%, white, transparent),
-    radial-gradient(1px 1px at 97% 94%, white, transparent),
-    radial-gradient(1px 1px at 4% 81%, white, transparent),
-    radial-gradient(1px 1px at 13% 54%, white, transparent),
-    radial-gradient(1px 1px at 21% 7%, white, transparent),
-    radial-gradient(1px 1px at 29% 96%, white, transparent),
-    radial-gradient(1px 1px at 37% 62%, white, transparent),
-    radial-gradient(1px 1px at 46% 29%, white, transparent),
-    radial-gradient(1px 1px at 53% 91%, white, transparent),
-    radial-gradient(1px 1px at 61% 48%, white, transparent),
-    radial-gradient(1px 1px at 69% 4%, white, transparent),
-    radial-gradient(1px 1px at 76% 82%, white, transparent),
-    radial-gradient(1px 1px at 81% 58%, white, transparent),
-    radial-gradient(1px 1px at 89% 32%, white, transparent),
-    radial-gradient(1px 1px at 96% 71%, white, transparent),
-    radial-gradient(1px 1px at 2% 44%, white, transparent);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Planet 3 - Purple Gas Giant */
-.button-group::before {
-  content: '';
-  position: fixed;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #c9a0dc, #8e5ca8 50%, #5c3a6e);
-  box-shadow: 
-    inset -10px -10px 20px rgba(0, 0, 0, 0.5),
-    0 0 25px rgba(201, 160, 220, 0.2);
-  top: 60%;
-  right: 5%;
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Planet 4 - Green Earth-like */
-.button-group::after {
-  content: '';
-  position: fixed;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #4ade80, #22c55e 50%, #15803d);
-  box-shadow: 
-    inset -12px -12px 25px rgba(0, 0, 0, 0.5),
-    0 0 25px rgba(74, 222, 128, 0.25);
-  top: 5%;
-  left: 10%;
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Planet 5 - Orange Jupiter-like */
-.accounts-list::after {
-  content: '';
-  position: fixed;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: 
-    linear-gradient(90deg, transparent 45%, rgba(139, 69, 19, 0.3) 50%, transparent 55%),
-    radial-gradient(circle at 30% 35%, #ffa726, #f57c00 50%, #e65100);
-  box-shadow: 
-    inset -18px -18px 35px rgba(0, 0, 0, 0.5),
-    0 0 35px rgba(255, 167, 38, 0.25);
-  bottom: 5%;
-  right: 8%;
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Planet 6 - Cyan Ice Giant */
-.dialog-overlay::before {
-  content: '';
-  position: fixed;
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #67e8f9, #22d3ee 50%, #0891b2);
-  box-shadow: 
-    inset -10px -10px 20px rgba(0, 0, 0, 0.4),
-    0 0 22px rgba(103, 232, 249, 0.3);
-  top: 40%;
-  left: 3%;
-  opacity: 0.28;
-  pointer-events: none;
-  z-index: 999;
-}
-
-/* Planet 7 - Small Rocky Moon */
-.form-actions::before {
-  content: '';
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 45% 40%, #9ca3af, #6b7280 50%, #374151);
-  box-shadow: 
-    inset -8px -8px 15px rgba(0, 0, 0, 0.6),
-    0 0 15px rgba(156, 163, 175, 0.2);
-  bottom: 30%;
-  right: 15%;
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Asteroid Belt Effect */
-.accounts-list::before {
-  content: '';
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-image:
-    radial-gradient(1.5px 1.5px at 25% 15%, rgba(150, 150, 150, 0.3), transparent),
-    radial-gradient(2px 2px at 75% 25%, rgba(130, 130, 130, 0.2), transparent),
-    radial-gradient(1px 1px at 45% 85%, rgba(140, 140, 140, 0.25), transparent);
-  background-size: 100% 100%;
-  opacity: 0.2;
-  pointer-events: none;
-  z-index: 0;
-}
-
+/* Shared structural styles */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  background: rgba(10, 10, 26, 0.6);
-  border: 2px solid #00ffcc;
-  border-radius: 20px;
-  box-shadow: 
-    0 0 20px rgba(0, 255, 204, 0.3),
-    inset 0 0 60px rgba(0, 255, 136, 0.05);
   position: relative;
+  z-index: 1;
 }
 
-#root::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%,
-    #00ffcc 50%,
-    transparent 100%);
-  animation: scanline 3s linear infinite;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
 }
 
-@keyframes scanline {
-  0% { transform: translateY(0); opacity: 0.3; }
-  50% { opacity: 0.8; }
-  100% { transform: translateY(500px); opacity: 0.3; }
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
 }
 
 /* Error Message */
 .error-message {
-  color: #ff3366;
   padding: 15px;
-  background: rgba(255, 51, 102, 0.1);
-  border: 1px solid #ff3366;
   border-radius: 8px;
-  box-shadow: 
-    0 0 15px rgba(255, 51, 102, 0.3),
-    inset 0 0 20px rgba(255, 51, 102, 0.05);
-  text-shadow: 0 0 5px rgba(255, 51, 102, 0.8);
-  animation: pulse-error 2s ease-in-out infinite;
-}
-
-@keyframes pulse-error {
-  0%, 100% { box-shadow: 0 0 15px rgba(255, 51, 102, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(255, 51, 102, 0.6); }
+  margin-bottom: 20px;
 }
 
 /* Header Actions */
 .header-actions {
   margin-bottom: 15px;
   padding: 15px;
-  background: rgba(0, 255, 204, 0.05);
-  border: 1px solid #00ffcc;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
 }
 
-.header-actions h1 {
-  color: #00ffcc;
-  text-shadow: 
-    0 0 10px rgba(0, 255, 204, 0.8),
-    0 0 20px rgba(0, 255, 204, 0.4);
-  letter-spacing: 3px;
+.header-actions h2 {
   margin: 0;
   font-weight: 900;
 }
 
+/* Button Group */
 .button-group {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 /* Buttons */
 .btn {
   padding: 12px 24px;
-  color: #0a0a1a;
   border: 2px solid;
-  border-radius: 0;
   cursor: pointer;
   font-weight: 700;
   transition: all 0.3s ease;
@@ -378,30 +60,6 @@ body::after {
   letter-spacing: 2px;
   position: relative;
   overflow: hidden;
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s, height 0.5s;
-}
-
-.btn:hover:not(:disabled)::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  filter: brightness(1.2);
 }
 
 .btn:disabled {
@@ -410,116 +68,39 @@ body::after {
   filter: grayscale(0.8);
 }
 
-.btn-primary {
-  background-color: #00a8ff;
-  border-color: #00d4ff;
-  box-shadow: 
-    0 0 10px rgba(0, 212, 255, 0.5),
-    inset 0 0 10px rgba(0, 212, 255, 0.2);
-}
-
-.btn-success {
-  background-color: #00ff88;
-  border-color: #00ffcc;
-  box-shadow: 
-    0 0 10px rgba(0, 255, 204, 0.5),
-    inset 0 0 10px rgba(0, 255, 204, 0.2);
-}
-
-.btn-secondary {
-  background-color: #444466;
-  color: #00ffcc;
-  border-color: #666688;
-  box-shadow: 
-    0 0 10px rgba(102, 102, 136, 0.3),
-    inset 0 0 10px rgba(102, 102, 136, 0.1);
-}
-
 /* Account List */
 .accounts-container {
   max-height: 500px;
   overflow-y: auto;
-  border: 2px solid #00a8ff;
   padding: 15px;
-  background: rgba(0, 10, 20, 0.8);
   border-radius: 10px;
-  box-shadow: 
-    0 0 20px rgba(0, 168, 255, 0.3),
-    inset 0 0 40px rgba(0, 168, 255, 0.05);
 }
 
 .accounts-container::-webkit-scrollbar {
   width: 12px;
 }
 
-.accounts-container::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid #00a8ff;
-}
-
-.accounts-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00a8ff, #0088cc);
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
-}
-
 .accounts-list {
   list-style: none;
   padding: 0;
+  position: relative;
 }
 
 .account-item {
   padding: 15px;
   margin: 10px 0;
-  background: linear-gradient(135deg, rgba(0, 168, 255, 0.1), rgba(0, 255, 136, 0.05));
-  border: 1px solid #00a8ff;
-  border-left: 4px solid #00ffcc;
   transition: all 0.3s ease;
   position: relative;
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-  box-shadow: 0 0 10px rgba(0, 168, 255, 0.2);
-}
-
-.account-item::before {
-  content: '◢';
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  color: #00a8ff;
-  font-size: 12px;
-  opacity: 0.5;
-}
-
-.account-item::after {
-  content: '◣';
-  position: absolute;
-  bottom: 2px;
-  left: 2px;
-  color: #00ffcc;
-  font-size: 12px;
-  opacity: 0.5;
-}
-
-.account-item:hover {
-  background: linear-gradient(135deg, rgba(0, 168, 255, 0.15), rgba(0, 255, 136, 0.08));
-  border-color: #00ffcc;
-  box-shadow: 
-    0 0 15px rgba(0, 255, 204, 0.3),
-    inset 0 0 15px rgba(0, 255, 204, 0.08);
 }
 
 .account-item h3 {
-  color: #00ffcc;
   margin: 0 0 8px 0;
-  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
   letter-spacing: 1px;
 }
 
 .account-item p {
-  color: #00a8ff;
   margin: 4px 0;
   font-size: 0.9em;
-  text-shadow: 0 0 3px rgba(0, 168, 255, 0.3);
 }
 
 .account-content {
@@ -535,44 +116,13 @@ body::after {
   flex-shrink: 0;
 }
 
-.btn-edit {
-  background-color: #00a8ff;
-  border-color: #00d4ff;
-  min-width: 40px;
-  height: 40px;
-  padding: 8px;
-  font-size: 18px;
-  flex-shrink: 0;
-  box-shadow: 
-    0 0 10px rgba(0, 168, 255, 0.5),
-    inset 0 0 10px rgba(0, 168, 255, 0.2);
-}
-
-.btn-edit:hover:not(:disabled) {
-  background-color: #0088dd;
-  box-shadow: 
-    0 0 20px rgba(0, 168, 255, 0.8),
-    inset 0 0 15px rgba(0, 168, 255, 0.3);
-}
-
+.btn-edit,
 .btn-delete {
-  background-color: #ff3366;
-  border-color: #ff5588;
   min-width: 40px;
   height: 40px;
   padding: 8px;
   font-size: 18px;
   flex-shrink: 0;
-  box-shadow: 
-    0 0 10px rgba(255, 51, 102, 0.5),
-    inset 0 0 10px rgba(255, 51, 102, 0.2);
-}
-
-.btn-delete:hover:not(:disabled) {
-  background-color: #ff1144;
-  box-shadow: 
-    0 0 20px rgba(255, 51, 102, 0.8),
-    inset 0 0 15px rgba(255, 51, 102, 0.3);
 }
 
 /* Dialog */
@@ -582,8 +132,6 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -597,15 +145,9 @@ body::after {
 }
 
 .dialog-content {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 40px;
-  border: 2px solid #00ffcc;
-  border-radius: 0;
   min-width: 450px;
   max-width: 550px;
-  box-shadow: 
-    0 0 40px rgba(0, 255, 204, 0.4),
-    inset 0 0 60px rgba(0, 255, 204, 0.05);
   position: relative;
   animation: slideDown 0.3s ease;
 }
@@ -615,30 +157,10 @@ body::after {
   to { transform: translateY(0); opacity: 1; }
 }
 
-.dialog-content::before {
-  content: '⬢ CONTROL PANEL ⬢';
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1a1a2e;
-  padding: 5px 20px;
-  color: #00ffcc;
-  font-size: 0.7em;
-  letter-spacing: 2px;
-  border: 1px solid #00ffcc;
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
-}
-
 .dialog-content h2 {
   margin-top: 10px;
-  color: #00ffcc;
-  text-shadow: 
-    0 0 10px rgba(0, 255, 204, 0.8),
-    0 0 20px rgba(0, 255, 204, 0.4);
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-bottom: 2px solid rgba(0, 255, 204, 0.3);
   padding-bottom: 15px;
   margin-bottom: 25px;
 }
@@ -656,8 +178,6 @@ body::after {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #00a8ff;
-  text-shadow: 0 0 5px rgba(0, 168, 255, 0.5);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 0.85em;
@@ -666,30 +186,13 @@ body::after {
 .form-input {
   width: 100%;
   padding: 12px;
-  background: rgba(0, 10, 20, 0.6);
-  border: 2px solid #00a8ff;
-  border-radius: 5px;
   font-size: 14px;
   box-sizing: border-box;
-  color: #00ffcc;
-  font-family: 'Orbitron', monospace;
   transition: all 0.3s ease;
-  box-shadow: 
-    inset 0 0 10px rgba(0, 168, 255, 0.2),
-    0 0 5px rgba(0, 168, 255, 0.1);
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #00ffcc;
-  box-shadow: 
-    inset 0 0 15px rgba(0, 255, 204, 0.3),
-    0 0 15px rgba(0, 255, 204, 0.4);
-  background: rgba(0, 20, 30, 0.8);
-}
-
-.form-input::placeholder {
-  color: rgba(0, 168, 255, 0.4);
 }
 
 .form-actions {
@@ -697,6 +200,5 @@ body::after {
   gap: 15px;
   justify-content: flex-end;
   padding-top: 15px;
-  border-top: 1px solid rgba(0, 255, 204, 0.2);
 }
 

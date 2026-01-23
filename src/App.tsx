@@ -4,14 +4,35 @@ import { AccountsService } from './generated/services/AccountsService';
 import type { Accounts } from './generated/models/AccountsModel';
 import { initialize } from '@microsoft/power-apps/app';
 import { AccountFormDialog } from './components/AccountFormDialog';
+import { ThemeSelector } from './components/ThemeSelector';
+import { useTheme } from './contexts/ThemeContext';
 
 function App() {
+  const { theme } = useTheme();
   const [isPowerPlatformSDKInitialized, setIsPowerPlatformSDKInitialized] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [accounts, setAccounts] = useState<Accounts[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState<Accounts | null>(null);
+
+  // Load theme CSS dynamically
+  useEffect(() => {
+    // Remove any existing theme stylesheets
+    const existingThemeLinks = document.querySelectorAll('link[data-theme]');
+    existingThemeLinks.forEach(link => link.remove());
+
+    // Add new theme stylesheet
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `/src/themes/${theme}.css`;
+    link.setAttribute('data-theme', theme);
+    document.head.appendChild(link);
+
+    return () => {
+      link.remove();
+    };
+  }, [theme]);
 
   // Initialize Power Apps SDK on component mount
   // Will called only once when the component is mounted (rendered for the first time)
@@ -86,7 +107,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>Space Accounts</h1>
+        <h1>Power Platform Accounts</h1>
+        
+        <ThemeSelector />
         
         {error && <div className="error-message">{error}</div>}
         

@@ -1,0 +1,255 @@
+/* Comic Book Theme */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap');
+
+body.theme-comic {
+  font-family: 'Bangers', cursive;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF6347 50%, #FF1493 75%, #9370DB 100%);
+  color: #000;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Comic halftone dots pattern */
+body.theme-comic::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(circle 3px at 10% 20%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 30% 40%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 50% 60%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 70% 80%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 90% 10%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 20% 70%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 40% 90%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 60% 30%, rgba(0, 0, 0, 0.3), transparent),
+    radial-gradient(circle 3px at 80% 50%, rgba(0, 0, 0, 0.3), transparent);
+  background-size: 50px 50px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Comic speech bubbles in background */
+body.theme-comic::after {
+  content: 'POW!';
+  position: fixed;
+  top: 15%;
+  right: 10%;
+  font-size: 4em;
+  color: #FFD700;
+  text-shadow: 
+    3px 3px 0 #000,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000;
+  transform: rotate(-15deg);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  animation: comic-pulse 3s ease-in-out infinite;
+}
+
+@keyframes comic-pulse {
+  0%, 100% { transform: rotate(-15deg) scale(1); }
+  50% { transform: rotate(-15deg) scale(1.1); }
+}
+
+body.theme-comic #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #FFFACD;
+  border: 5px solid #000;
+  border-radius: 0;
+  box-shadow: 
+    8px 8px 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(255, 215, 0, 0.2);
+  position: relative;
+}
+
+body.theme-comic #root::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 3px dashed #FF1493;
+  pointer-events: none;
+}
+
+body.theme-comic h1 {
+  color: #FF1493;
+  text-shadow: 
+    3px 3px 0 #000,
+    -2px -2px 0 #FFD700;
+  letter-spacing: 5px;
+  transform: skewY(-2deg);
+}
+
+body.theme-comic .error-message {
+  color: #DC143C;
+  background: #FFE4E1;
+  border: 4px solid #DC143C;
+  border-radius: 0;
+  box-shadow: 5px 5px 0 rgba(220, 20, 60, 0.3);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  font-family: 'Permanent Marker', cursive;
+}
+
+body.theme-comic .header-actions {
+  background: #FFA500;
+  border: 4px solid #000;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+  transform: rotate(-1deg);
+}
+
+body.theme-comic .btn {
+  border-radius: 0;
+  border-width: 4px;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+body.theme-comic .btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.theme-comic .btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.theme-comic .btn-primary {
+  background-color: #00BFFF;
+  border-color: #000;
+  color: #000;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.theme-comic .btn-success {
+  background-color: #32CD32;
+  border-color: #000;
+  color: #000;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.theme-comic .accounts-container {
+  border: 5px solid #000;
+  background: #FFF8DC;
+  border-radius: 0;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+body.theme-comic .account-item {
+  background: linear-gradient(135deg, #FFE4B5 0%, #FFDAB9 100%);
+  border: 4px solid #000;
+  border-left: 8px solid #FF1493;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 15px 0;
+}
+
+body.theme-comic .account-item::before {
+  content: '★';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  color: #FFD700;
+  font-size: 24px;
+  text-shadow: 2px 2px 0 #000;
+}
+
+body.theme-comic .account-item:hover {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-color: #000;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+body.theme-comic .account-item h3 {
+  color: #DC143C;
+  text-shadow: 2px 2px 0 rgba(255, 215, 0, 0.5);
+  font-family: 'Bangers', cursive;
+}
+
+body.theme-comic .account-item p {
+  color: #000;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.95em;
+}
+
+body.theme-comic .dialog-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+body.theme-comic .dialog-content {
+  background: linear-gradient(135deg, #FFE4B5 0%, #FFDAB9 100%);
+  border: 6px solid #000;
+  border-radius: 0;
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.4);
+  transform: rotate(0deg);
+}
+
+body.theme-comic .dialog-content::before {
+  content: '💥 EDIT MODE 💥';
+  background: #FF1493;
+  color: #FFFACD;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Bangers', cursive;
+}
+
+body.theme-comic .dialog-content h2 {
+  color: #FF1493;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 4px dashed #000;
+  font-family: 'Bangers', cursive;
+}
+
+body.theme-comic .form-label {
+  color: #000;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1em;
+}
+
+body.theme-comic .form-input {
+  background: #FFF;
+  border: 3px solid #000;
+  color: #000;
+  font-family: 'Permanent Marker', cursive;
+  border-radius: 0;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+body.theme-comic .form-input:focus {
+  border-color: #FF1493;
+  box-shadow: 
+    inset 2px 2px 0 rgba(255, 20, 147, 0.1),
+    0 0 0 3px rgba(255, 20, 147, 0.3);
+  background: #FFFACD;
+}
+
+body.theme-comic .btn-delete {
+  background-color: #DC143C;
+  border-color: #000;
+  color: #FFF;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.theme-comic .btn-edit {
+  background-color: #FFD700;
+  border-color: #000;
+  color: #000;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
